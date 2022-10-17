@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --discord-color: 234.9, 85.6%;
+  --discord-l: 64.7%;
+  --discord: hsl(var(--discord-color), var(--discord-l));
+  --discord-lighter: hsl(var(--discord-color), calc(var(--discord-l) + 10%));
+  --discord-darker: hsl(var(--discord-color), calc(var(--discord-l) - 10%));
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@layer base {
+  html,
+  body,
+  #__next {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-black;
+    @apply text-white;
+  }
+}
+
+@layer utilities {
+  .bg-discord-lighter {
+    background-color: var(--discord-lighter);
+  }
+}
