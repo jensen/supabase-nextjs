@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Supabase + Next
+
+https://user-images.githubusercontent.com/14803/196486524-230ec5d7-47e3-433f-8ecf-fe4c4dc0dc4c.mp4
 
 ## Getting Started
 
