@@ -1,10 +1,15 @@
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 import DashboardLayout from "layouts/dashboard";
 
+import type { User } from "@supabase/supabase-js";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "pages/_app";
 
-const Settings: NextPageWithLayout = () => {
+interface SettingsProps {
+  user: User;
+}
+
+const Settings: NextPageWithLayout<SettingsProps> = (props) => {
   return <div>Settings</div>;
 };
 
