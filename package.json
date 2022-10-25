@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently \"next dev --turbo\" \"tailwindcss --input styles/global.css --output styles/generated.css --watch\"",
+    "build": "tailwindcss --input styles/global.css --output styles/generated.css && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,6 +22,7 @@
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.12",
+    "concurrently": "^7.5.0",
     "eslint": "8.25.0",
     "eslint-config-next": "^13.0.0",
     "postcss": "^8.4.18",
