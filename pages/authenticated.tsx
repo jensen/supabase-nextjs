@@ -7,14 +7,14 @@ import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "pages/_app";
 
 const Authenticated: NextPageWithLayout = () => {
-  const router = useRouter();
+  const { replace } = useRouter();
   const { session } = useSessionContext();
 
   useEffect(() => {
     if (session) {
-      router.replace("/dashboard");
+      replace("/dashboard");
     }
-  }, [session, router]);
+  }, [session, replace]);
 
   return null;
 };
