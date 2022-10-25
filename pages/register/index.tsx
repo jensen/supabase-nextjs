@@ -12,13 +12,13 @@ const Register: NextPageWithLayout = () => {
       <section className="w-1/2 flex flex-col justify-center items-center">
         <div className="space-y-8 flex flex-col items-center">
           <Providers />
-          <Link href="/register/email">
-            <a className="text-sky-500">Sign Up with Email</a>
+          <Link href="/register/email" className="text-sky-500">
+            Sign Up with Email
           </Link>
           <div className="w-full border-t border-neutral-800 pt-4">
             Already have an account?{" "}
-            <Link href="/login">
-              <a className="text-sky-500">Log in</a>
+            <Link href="/login" className="text-sky-500">
+              Log in
             </Link>
           </div>
         </div>

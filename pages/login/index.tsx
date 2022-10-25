@@ -6,13 +6,13 @@ export default function Login() {
     <div className="min-h-[calc(100vh-64px)] flex flex-col justify-center items-center">
       <div className="flex-grow flex flex-col justify-center items-center space-y-4">
         <Providers />
-        <Link href="/login/email">
-          <a className="text-sky-500">Login with Email</a>
+        <Link href="/login/email" className="text-sky-500">
+          Login with Email
         </Link>
       </div>
       <div className="border-t border-neutral-800 py-12 w-full flex justify-center">
-        <Link href="/register">
-          <a className="text-sky-500">Don&apos;t have an account? Sign Up</a>
+        <Link href="/register" className="text-sky-500">
+          Don&apos;t have an account? Sign Up
         </Link>
       </div>
     </div>

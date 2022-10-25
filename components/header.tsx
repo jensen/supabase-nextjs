@@ -13,8 +13,8 @@ interface HeaderLinkProps {
 const HeaderLink = (props: HeaderLinkProps) => {
   return (
     <li>
-      <Link href={props.path}>
-        <a className="text-neutral-500 hover:text-white">{props.children}</a>
+      <Link href={props.path} className="text-neutral-500 hover:text-white">
+        {props.children}
       </Link>
     </li>
   );
@@ -71,8 +71,8 @@ export default function Header() {
 
   return (
     <div className="flex justify-between items-center">
-      <Link href="/">
-        <a className="font-bold text-xl">supabase+next</a>
+      <Link href="/" className="font-bold text-xl">
+        supabase+next
       </Link>
       {current.startsWith("/login") === false && (
         <ul className="flex space-x-4">
