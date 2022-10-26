@@ -1,5 +1,7 @@
+"use client";
+
 import { useSessionContext } from "@supabase/auth-helpers-react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Logout() {
   const router = useRouter();

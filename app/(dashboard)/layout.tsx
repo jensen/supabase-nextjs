@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps) {
   return (
-    <div className="h-full flex">
+    <div className="min-h-screen flex">
       <div className="bg-zinc-900 text-zinc-500 flex flex-col justify-between pt-12 pb-12">
         <div>
           <div className="pl-10 pr-12 pb-12">

@@ -1,3 +1,5 @@
+"use client";
+
 import { useSessionContext } from "@supabase/auth-helpers-react";
 
 export default function Discord() {

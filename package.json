@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev --turbo\" \"tailwindcss --input styles/global.css --output styles/generated.css --watch\"",
-    "build": "tailwindcss --input styles/global.css --output styles/generated.css && next build",
+    "dev": "next dev",
+    "build": "next build",
+    "turbopack:dev": "concurrently \"next dev --turbo --show-all\" \"tailwindcss --input styles/global.css --output styles/generated.css --watch\"",
+    "turbopack:build": "tailwindcss --input styles/global.css --output styles/generated.css && next build",
     "start": "next start",
     "lint": "next lint"
   },

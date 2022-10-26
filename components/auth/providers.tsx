@@ -1,3 +1,5 @@
+"use client";
+
 import GithubButton from "components/auth/buttons/github";
 import DiscordButton from "components/auth/buttons/discord";
 

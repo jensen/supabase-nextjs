@@ -1,19 +1,21 @@
+"use client";
+
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import classnames from "classnames";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 
 import type { ReactNode } from "react";
 
 interface HeaderLinkProps {
-  path: string;
+  href: string;
   children: ReactNode;
 }
 
 const HeaderLink = (props: HeaderLinkProps) => {
   return (
     <li>
-      <Link href={props.path} className="text-neutral-500 hover:text-white">
+      <Link href={props.href} className="text-neutral-500 hover:text-white">
         {props.children}
       </Link>
     </li>
@@ -21,7 +23,7 @@ const HeaderLink = (props: HeaderLinkProps) => {
 };
 
 interface HeaderButtonProps {
-  path: string;
+  href: string;
   primary: boolean;
   children: ReactNode;
 }
@@ -29,7 +31,7 @@ interface HeaderButtonProps {
 const HeaderButton = (props: HeaderButtonProps) => {
   return (
     <li>
-      <Link href={props.path}>
+      <Link href={props.href}>
         <button
           className={classnames(
             "flex items-center h-8 px-2 rounded-md border transition-colors duration-300",
@@ -55,17 +57,17 @@ HeaderButton.defaultProps = {
 };
 
 const SignupButton = () => {
-  const current = useRouter().pathname;
+  const current = usePathname();
 
   return (
-    <HeaderButton path="/register" primary={current !== "/login"}>
+    <HeaderButton href="/register" primary={current !== "/login"}>
       Sign Up
     </HeaderButton>
   );
 };
 
 export default function Header() {
-  const current = useRouter().pathname;
+  const current = usePathname();
 
   const { session } = useSessionContext();
 
@@ -76,15 +78,15 @@ export default function Header() {
       </Link>
       {current.startsWith("/login") === false && (
         <ul className="flex space-x-4">
-          <HeaderLink path="/features">Features</HeaderLink>
-          <HeaderLink path="/pricing">Pricing</HeaderLink>
+          <HeaderLink href="/features">Features</HeaderLink>
+          <HeaderLink href="/pricing">Pricing</HeaderLink>
         </ul>
       )}
       {session ? (
         <Link href="/dashboard">Dashboard</Link>
       ) : (
         <ul className="flex space-x-4 items-center">
-          {current !== "/login" && <HeaderLink path="/login">Login</HeaderLink>}
+          {current !== "/login" && <HeaderLink href="/login">Login</HeaderLink>}
           <SignupButton />
         </ul>
       )}

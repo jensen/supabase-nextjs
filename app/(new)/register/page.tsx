@@ -1,11 +1,7 @@
 import Link from "next/link";
-import Footer from "components/footer";
 import Providers from "components/auth/providers";
 
-import type { ReactElement } from "react";
-import type { NextPageWithLayout } from "pages/_app";
-
-const Register: NextPageWithLayout = () => {
+export default function Register() {
   return (
     <div className="min-h-screen flex">
       <section className="w-1/2 bg-neutral-900 border-r border-neutral-800"></section>
@@ -25,13 +21,4 @@ const Register: NextPageWithLayout = () => {
       </section>
     </div>
   );
-};
-
-Register.getLayout = (page: ReactElement) => (
-  <>
-    {page}
-    <Footer />
-  </>
-);
-
-export default Register;
+}

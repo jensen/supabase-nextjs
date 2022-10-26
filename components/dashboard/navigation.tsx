@@ -1,5 +1,7 @@
+"use client";
+
 import classnames from "classnames";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import type { ReactNode } from "react";
@@ -10,7 +12,7 @@ interface NavigationLinkProps {
 }
 
 const NavigationLink = (props: NavigationLinkProps) => {
-  const current = useRouter().pathname;
+  const current = usePathname();
 
   return (
     <Link href={props.path}>
