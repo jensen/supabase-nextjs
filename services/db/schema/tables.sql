@@ -26,7 +26,7 @@ drop function if exists handle_new_user();
 create function handle_new_user() returns trigger language plpgsql security definer
 set search_path = public as $$ begin
 insert into
-  profiles (id, name, avatar)
+  profiles (id, name)
 values
   (
     new.id,
@@ -37,8 +37,6 @@ insert into
   profiles_private (id, email)
 values
   (new.id, new.email);
-
-update invitations set user_id = new.id where email = new.email;
 
 return new;
 
