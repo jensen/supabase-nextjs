@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import classnames from "classnames";
+import { usePathname, useRouter } from "next/navigation";
 import { useSessionContext } from "@supabase/auth-helpers-react";
+import Button from "components/shared/input/Button";
 
 import type { ReactNode } from "react";
 
@@ -32,21 +32,7 @@ const HeaderButton = (props: HeaderButtonProps) => {
   return (
     <li>
       <Link href={props.href}>
-        <button
-          className={classnames(
-            "flex items-center h-8 px-2 rounded-md border transition-colors duration-300",
-            {
-              "bg-white text-black border-white hover:bg-black hover:text-white":
-                props.primary,
-              "bg-black text-neutral-500 border-neutral-700 hover:text-white hover:border-white":
-                props.primary === false,
-            }
-          )}
-        >
-          <span className="text-sm font-semibold leading-5 inline-block">
-            {props.children}
-          </span>
-        </button>
+        <Button size="sm">{props.children}</Button>
       </Link>
     </li>
   );
@@ -68,7 +54,7 @@ const SignupButton = () => {
 
 export default function Header() {
   const current = usePathname();
-
+  const router = useRouter();
   const { session } = useSessionContext();
 
   return (

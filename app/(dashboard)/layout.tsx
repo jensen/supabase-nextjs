@@ -10,7 +10,7 @@ interface LayoutProps {
 export default function Layout(props: LayoutProps) {
   return (
     <div className="min-h-screen flex">
-      <div className="bg-zinc-900 text-zinc-500 flex flex-col justify-between pt-12 pb-12">
+      <div className="bg-zinc-900 text-zinc-500 flex flex-col justify-between pt-12 pb-12 w-60 flex-shrink-0">
         <div>
           <div className="pl-10 pr-12 pb-12">
             <span className="text-white font-bold text-xl">supabase+next</span>
@@ -19,7 +19,9 @@ export default function Layout(props: LayoutProps) {
         </div>
         <Logout />
       </div>
-      <section className="p-12">{props.children}</section>
+      <section className="p-12 w-[calc(100vw-240px)] min-w-[438px]">
+        {props.children}
+      </section>
     </div>
   );
 }

@@ -65,6 +65,11 @@ create table customers (
 alter table
   customers enable row level security;
 
-create policy "Customers are only visible to admins" on customers for
+create policy "Customers are visible to the user that they belong to" on public.customers for
 select
   using (auth.uid() = user_id);
+
+create policy "Customers can be inserted by authenticated users" on public.customers for
+insert
+  to authenticated
+  with check(true);

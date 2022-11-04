@@ -28,8 +28,60 @@
   }
 }
 
+@layer components {
+  table {
+    @apply table-fixed border-separate border-spacing-0;
+    @apply w-full;
+
+    & tr th {
+      @apply bg-zinc-900;
+      @apply px-3 py-2;
+      @apply uppercase;
+      @apply text-zinc-500 text-sm font-normal text-left;
+      @apply border-t border-b border-zinc-700;
+    }
+
+    & tr th:first-of-type {
+      @apply rounded-l-md;
+      @apply border-l;
+    }
+
+    & tr th:last-of-type {
+      @apply rounded-r-md;
+      @apply border-r;
+    }
+
+    & td {
+      @apply px-3 py-2;
+      @apply border-b border-zinc-700;
+      @apply overflow-hidden text-ellipsis whitespace-nowrap;
+    }
+
+    & tr:last-of-type .cell {
+      @apply border-b-0;
+    }
+  }
+
+  input {
+    @apply bg-black border border-zinc-700 rounded-md;
+    @apply px-3 inline;
+  }
+}
+
 @layer utilities {
   .bg-discord-lighter {
     background-color: var(--discord-lighter);
+  }
+
+  .gradient {
+    @apply absolute z-10 w-full h-full;
+    @apply pointer-events-none touch-none;
+
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 0px,
+      rgba(255, 255, 255, 0) 40px,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 }

@@ -1,15 +1,17 @@
-import { createSupabaseClient } from "services/supabase";
+import CustomerTable from "./CustomerTable";
+import CustomerForm from "./CustomerForm";
 
-const getCustomers = async () => {
-  const supabase = createSupabaseClient();
-
-  return (await supabase.from("customers").select()).data;
-};
+import { getCustomers } from "api/customers/server";
 
 const Customers = async () => {
   const customers = await getCustomers();
 
-  return <pre>{JSON.stringify(customers, null, 2)}</pre>;
+  return (
+    <>
+      <CustomerTable customers={customers} />
+      <CustomerForm />
+    </>
+  );
 };
 
 export default Customers;
