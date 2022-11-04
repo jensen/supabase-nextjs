@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import Button from "components/shared/input/Button";
 
@@ -54,7 +54,6 @@ const SignupButton = () => {
 
 export default function Header() {
   const current = usePathname();
-  const router = useRouter();
   const { session } = useSessionContext();
 
   return (
@@ -62,7 +61,7 @@ export default function Header() {
       <Link href="/" className="font-bold text-xl">
         supabase+next
       </Link>
-      {current.startsWith("/login") === false && (
+      {current?.startsWith("/login") === false && (
         <ul className="flex space-x-4">
           <HeaderLink href="/features">Features</HeaderLink>
           <HeaderLink href="/pricing">Pricing</HeaderLink>
