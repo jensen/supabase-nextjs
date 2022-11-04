@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { AuthApiError } from "@supabase/supabase-js";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import AuthForm from "components/auth/form";
 
 import type { AuthEvent } from "components/auth/form";

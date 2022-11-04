@@ -13,5 +13,6 @@ export default function Check() {
       replace("/dashboard");
     }
   }, [session, replace]);
+
   return null;
 }
