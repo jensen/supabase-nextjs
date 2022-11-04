@@ -14,7 +14,7 @@ export const createSupabaseClient = () => {
     supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
     supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     getCookie: (name: string) => cookies().get("supabase-auth-token")?.value,
-    setCookie: (name, value, options) => null,
+    setCookie: () => null /* we cannot set the cookies yet */,
     getRequestHeader: (name: string) => headers().get(name) || undefined,
   });
 };
