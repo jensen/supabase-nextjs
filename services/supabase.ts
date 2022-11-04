@@ -1,5 +1,5 @@
-import { cookies } from "next/headers";
-import { createClient } from "@supabase/supabase-js";
+import { cookies, headers } from "next/headers";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-shared";
 
 export const createSupabaseClient = () => {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
@@ -10,26 +10,11 @@ export const createSupabaseClient = () => {
     throw new Error(`Must define process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY`);
   }
 
-  const cookie = JSON.parse(cookies().get("supabase-auth-token") || "{}");
-
-  const authorization = cookie?.access_token
-    ? {
-        global: {
-          headers: {
-            Authorization: `Bearer ${cookie.access_token}`,
-          },
-        },
-      }
-    : {};
-
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
-      auth: {
-        persistSession: false,
-      },
-      ...authorization,
-    }
-  );
+  return createServerSupabaseClient({
+    supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    getCookie: (name: string) => cookies().get("supabase-auth-token")?.value,
+    setCookie: (name, value, options) => null,
+    getRequestHeader: (name: string) => headers().get(name) || undefined,
+  });
 };
