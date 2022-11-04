@@ -8,6 +8,8 @@
   --discord: hsl(var(--discord-color), var(--discord-l));
   --discord-lighter: hsl(var(--discord-color), calc(var(--discord-l) + 10%));
   --discord-darker: hsl(var(--discord-color), calc(var(--discord-l) - 10%));
+
+  --dashboard-sidebar-width: 240px;
 }
 
 *::before,
